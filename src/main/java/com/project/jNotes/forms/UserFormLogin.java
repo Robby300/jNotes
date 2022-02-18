@@ -15,8 +15,4 @@ public class UserFormLogin {
     @Length(max = 255)
     private String password;
 
-    @NotEmpty
-    @Length(max = 255)
-    private String passwordConfirmation;
-
 }
