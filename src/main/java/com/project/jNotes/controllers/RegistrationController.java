@@ -1,5 +1,6 @@
 package com.project.jNotes.controllers;
 
+import com.project.jNotes.domens.Role;
 import com.project.jNotes.domens.User;
 import com.project.jNotes.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Collections;
 import java.util.Map;
 
 @Controller
@@ -26,12 +28,13 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(User user, Map<String, Object> model) {
-        User userFromDb = userService.findByEmail(user.getEmail());
+        User userFromDb = userService.findByUsername(user.getUsername());
         if (userFromDb != null) {
             model.put("message", "Пользователь уже создан!");
             return "registration";
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Collections.singleton(Role.USER));
         userService.save(user);
         return "redirect:/login";
     }

@@ -19,6 +19,4 @@ public class Note {
     private Long id;
     private String text;
     private LocalDateTime creationTime;
-
-
 }

@@ -10,5 +10,4 @@ public class NoteForm {
     @NotEmpty
     @Length(max = 511)
     private String text;
-
 }
