@@ -5,7 +5,7 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
-public class UserForm {
+public class UserFormLogin {
     @NotEmpty
     @Length(max = 100)
     @Email
@@ -13,10 +13,10 @@ public class UserForm {
 
     @NotEmpty
     @Length(max = 255)
-    private String passwordFirstEnter;
+    private String password;
 
     @NotEmpty
     @Length(max = 255)
-    private String passwordSecondEnter;
+    private String passwordConfirmation;
 
 }
