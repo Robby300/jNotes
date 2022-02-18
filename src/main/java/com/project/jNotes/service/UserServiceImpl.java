@@ -28,4 +28,8 @@ public class UserServiceImpl implements UserService {
     public void save(User user) {
         userRepository.save(user);
     }
+
+    public User getCurrentUser() {
+        return (User) loadUserByUsername(getCurrentUser().getEmail());
+    }
 }
