@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "usr")
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -18,7 +18,7 @@ import java.util.Set;
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     @Column(unique = true)
     private String email;
     private String password;
