@@ -5,15 +5,11 @@ import com.project.jNotes.domens.User;
 import com.project.jNotes.forms.NoteForm;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
-import java.util.List;
-
 public interface UserService extends UserDetailsService {
 
     void save(User user);
 
     User getCurrentUser();
-
-    List<Note> getNotes(Long userId);
 
     void addNote(NoteForm noteForm);
 

@@ -6,6 +6,7 @@ import com.project.jNotes.forms.UserFormRegistration;
 import com.project.jNotes.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -46,7 +47,11 @@ public class RegistrationController {
             model.put("message", "Пароли не совпадают");
         }
         return "registration";
+    }
 
-
+    @GetMapping("/login-failure")
+    public String signInFailure(ModelMap modelMap) {
+        modelMap.put("message", "Неправильный логин или пароль.");
+        return "login";
     }
 }

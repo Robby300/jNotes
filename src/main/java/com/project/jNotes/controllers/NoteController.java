@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.io.IOException;
 import java.util.List;
 
 @PreAuthorize("hasAuthority('USER')")
@@ -40,7 +39,7 @@ public class NoteController {
     }
 
     @PostMapping("/add")
-    public String noteAdd(@Valid NoteForm noteForm) throws IOException {
+    public String noteAdd(@Valid NoteForm noteForm) {
         userService.addNote(noteForm);
 
         return "redirect:/notes";
@@ -60,7 +59,7 @@ public class NoteController {
     }
 
     @PostMapping("/{id}/edit")
-    public String noteUpdate(@PathVariable(value = "id") Long noteId, NoteForm noteForm) throws IOException {
+    public String noteUpdate(@PathVariable(value = "id") Long noteId, NoteForm noteForm) {
         userService.editNoteById(noteId, noteForm);
         return "redirect:/notes";
     }
