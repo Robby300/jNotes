@@ -4,8 +4,8 @@
 <@c.page>
 
 <div class="alert alert-info mt-2">
-    <h3>Содержание: ${note.creationTime}</h3>
-    <h2>Содержание: ${note.text}</h2>
+    <h4>Создана: ${note.creationTime}</h4>
+    <h4>Содержание: ${note.text}</h4>
 </div>
 
 <br>
