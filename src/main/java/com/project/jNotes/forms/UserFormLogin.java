@@ -11,10 +11,9 @@ public class UserFormLogin {
     @NotEmpty
     @Length(max = 100)
     @Email
-    private String email;
+    private String username;
 
     @NotEmpty
     @Length(max = 255)
     private String password;
-
 }

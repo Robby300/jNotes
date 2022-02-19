@@ -11,7 +11,7 @@ public class UserFormRegistration {
     @NotEmpty
     @Length(max = 100)
     @Email
-    private String email;
+    private String username;
 
     @NotEmpty
     @Length(max = 255)
@@ -20,5 +20,4 @@ public class UserFormRegistration {
     @NotEmpty
     @Length(max = 255)
     private String passwordConfirmation;
-
 }
