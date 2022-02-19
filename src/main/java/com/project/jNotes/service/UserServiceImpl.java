@@ -42,11 +42,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Note> getNotes(Long userId) {
-        return getCurrentUser().getNoteList();
-    }
-
-    @Override
     public void addNote(NoteForm noteForm) {
         User user = getCurrentUser();
         List<Note> notes = user.getNoteList();
@@ -73,9 +68,7 @@ public class UserServiceImpl implements UserService {
         User user = getCurrentUser();
         List<Note> notes = user.getNoteList();
         Optional<Note> noteById = notes.stream().filter(note -> note.getId().equals(noteId)).findFirst();
-        if (noteById.isPresent()) {
-            noteById.get().setText(form.getText());
-        }
+        noteById.ifPresent(note -> note.setText(form.getText()));
         user.setNoteList(notes);
         save(user);
     }
@@ -85,9 +78,7 @@ public class UserServiceImpl implements UserService {
         User user = getCurrentUser();
         List<Note> notes = user.getNoteList();
         Optional<Note> noteById = notes.stream().filter(note -> note.getId().equals(noteId)).findFirst();
-        if (noteById.isPresent()) {
-            notes.remove(noteById.get());
-        }
+        noteById.ifPresent(notes::remove);
         user.setNoteList(notes);
         save(user);
     }
