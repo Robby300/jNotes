@@ -3,6 +3,7 @@
 
 <@c.page>
     <div class="mb-1">Регистрация:</div>
-    ${message?ifExists}
+
+    <h2 style="color:red">${message?ifExists}</h2>
     <@l.login "/registration" true />
 </@c.page>
