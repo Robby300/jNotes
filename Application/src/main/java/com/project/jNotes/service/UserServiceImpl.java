@@ -42,16 +42,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void addNote(NoteForm noteForm) {
+    public Note addNote(Note note) {
         User user = getCurrentUser();
         List<Note> notes = user.getNoteList();
-        Note note = Note.builder()
+        /*Note note = Note.builder()
                 .creationTime(LocalDateTime.now())
-                .text(noteForm.getText())
-                .build();
+                .text(note.getText())
+                .build();*/
         notes.add(note);
         user.setNoteList(notes);
         save(user);
+        return note;
     }
 
     @Override
@@ -88,4 +89,8 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUsername(username);
     }
 
+    @Override
+    public void deleteNote(Note note) {
+        deleteNoteById(note.getId());
+    }
 }

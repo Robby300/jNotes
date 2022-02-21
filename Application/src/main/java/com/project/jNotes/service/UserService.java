@@ -11,7 +11,7 @@ public interface UserService extends UserDetailsService {
 
     User getCurrentUser();
 
-    void addNote(NoteForm noteForm);
+    Note addNote(Note note);
 
     Note getNoteById(Long id);
 
@@ -20,4 +20,6 @@ public interface UserService extends UserDetailsService {
     void deleteNoteById(Long noteId);
 
     User findByUsername(String username);
+
+    void deleteNote(Note note);
 }

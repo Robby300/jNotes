@@ -19,7 +19,7 @@ import java.util.List;
 @RequestMapping("/notes")
 @Controller
 public class NoteController {
-    private final UserService userService;
+    /*private final UserService userService;
 
     public NoteController(UserService userService) {
         this.userService = userService;
@@ -68,5 +68,5 @@ public class NoteController {
     public String noteDelete(@PathVariable(value = "id") Long noteId) {
         userService.deleteNoteById(noteId);
         return "redirect:/notes";
-    }
+    }*/
 }
